@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: harbor.mycompany.com/bpm-connector
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: bpm.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+resources: {}

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "bpm-connector.fullname" . }}
+  labels:
+    app: {{ include "bpm-connector.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "bpm-connector.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "bpm-connector.name" . }}
+    spec:
+      containers:
+        - name: bpm-connector
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8080

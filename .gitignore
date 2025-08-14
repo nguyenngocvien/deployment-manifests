@@ -1,0 +1,32 @@
+# Ignore everything by default
+*
+
+# Allow Kubernetes manifests
+!*.yaml
+!*.yml
+
+# Allow helm chart files
+!Chart.yaml
+!values.yaml
+!*/values.yaml
+!templates/**
+
+# Allow kustomize files
+!kustomization.yaml
+!kustomization.yml
+
+# Ignore sensitive files
+secrets*.yaml
+secrets*.yml
+*.enc.yaml
+*.enc.yml
+
+# Ignore OS / Editor files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.swp
+*.lock

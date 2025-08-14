@@ -1,0 +1,10 @@
+replicaCount: 3
+image:
+  repository: harbor.mycompany.com/bpm-gateway
+  tag: 1.0.0
+ingress:
+  hosts:
+    - host: bpm.mycompany.com
+      paths:
+        - path: /
+          pathType: Prefix
