@@ -1,31 +1,37 @@
 # Ignore everything by default
 *
+# Allow argocd-apps folder
+!argocd-apps/
+!argocd-apps/**
 
-# Allow Kubernetes manifests
-!*.yaml
-!*.yml
+# Allow envs folder
+!envs/
+!envs/**
 
-# Allow helm chart files
-!Chart.yaml
-!values.yaml
-!*/values.yaml
-!templates/**
+# ===== Allow YAML / YML files anywhere =====
+!**/*.yaml
+!**/*.yml
 
-# Allow kustomize files
-!kustomization.yaml
-!kustomization.yml
+# ===== Allow Helm chart files =====
+!**/Chart.yaml
+!**/values.yaml
+!**/templates/**
 
-# Ignore sensitive files
+# ===== Allow Kustomize files =====
+!**/kustomization.yaml
+!**/kustomization.yml
+
+# ===== Ignore sensitive files =====
 secrets*.yaml
 secrets*.yml
 *.enc.yaml
 *.enc.yml
 
-# Ignore OS / Editor files
+# ===== Ignore OS / Editor files =====
 .DS_Store
 Thumbs.db
 
-# Ignore temporary files
+# ===== Ignore temporary files =====
 *.tmp
 *.bak
 *.swp
