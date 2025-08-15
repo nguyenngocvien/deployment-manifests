@@ -1,16 +1,9 @@
-Ok, mình sẽ viết cho bro một file `README.md` chuẩn chỉnh cho repo **deployment-manifests** (chuyên chứa manifest K8s và ArgoCD).
-
----
-
-```markdown
 # Deployment Manifests
 
 Repo này chứa toàn bộ **Kubernetes manifests** và cấu hình **ArgoCD Applications** để triển khai hệ thống lên các môi trường (dev, staging, production).
 
 ## 📂 Cấu trúc thư mục
-
-```
-
+````
 .
 ├── argocd-apps/          # ArgoCD Application manifest để quản lý deployment
 │   ├── app1.yaml
@@ -39,11 +32,11 @@ Repo này chứa toàn bộ **Kubernetes manifests** và cấu hình **ArgoCD Ap
 2. Vào ArgoCD UI → **Sync** Application → Hệ thống sẽ tự động deploy.
 
 ### 2. Deploy trực tiếp bằng kubectl
+
 ```bash
 kubectl apply -f apps/service-a/deployment.yaml
 kubectl apply -f apps/service-a/service.yaml
-````
-
+```
 ### 3. Deploy bằng Kustomize
 
 ```bash
@@ -68,7 +61,5 @@ kubectl apply -k overlays/dev
 ## 📄 License
 
 MIT License
-
-```
 
 ---
