@@ -5,6 +5,20 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
+env:
+  - name: SPRING_DATASOURCE_URL
+    value: jdbc:postgresql://bpm-postgres:5432/coresys
+  - name: SPRING_DATASOURCE_USERNAME
+    valueFrom:
+      secretKeyRef:
+        name: bpm-db-secret
+        key: username
+  - name: SPRING_DATASOURCE_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: bpm-db-secret
+        key: password
+
 service:
   type: ClusterIP
   port: 8080

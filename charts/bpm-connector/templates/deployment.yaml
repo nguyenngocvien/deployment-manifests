@@ -15,8 +15,10 @@ spec:
         app: {{ include "bpm-connector.name" . }}
     spec:
       containers:
-        - name: bpm-connector
+        - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            {{- toYaml .Values.env | nindent 6 }}
           ports:
             - containerPort: 8080
