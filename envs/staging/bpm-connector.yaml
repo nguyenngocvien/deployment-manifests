@@ -1,10 +1,10 @@
 replicaCount: 1
 image:
-  repository: harbor.mycompany.com/bpm-gateway
-  tag: dev-1.0.0
+  repository: 10.6.18.24:8080/bpm-connector/bpm-gateway
+  tag: staging-1.0.0
 ingress:
   hosts:
-    - host: bpm-dev.mycompany.com
+    - host: connector-staging.bpm.local
       paths:
         - path: /
           pathType: Prefix
