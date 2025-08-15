@@ -1,0 +1,10 @@
+global:
+  postgresql:
+    auth:
+      username: devuser
+      password: devpass
+      database: devdb
+primary:
+  persistence:
+    enabled: true
+    size: 1Gi

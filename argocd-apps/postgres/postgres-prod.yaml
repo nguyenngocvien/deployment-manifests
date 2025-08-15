@@ -1,0 +1,5 @@
+helm:
+  valueFiles:
+    - values-prod.yaml
+destination:
+  namespace: prod

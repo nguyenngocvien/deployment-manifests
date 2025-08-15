@@ -1,20 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bpm-connector-dev
-  namespace: argocd
+  name: postgres-dev
 spec:
   project: default
   source:
-    repoURL: 'http://10.6.18.24/cicd/deployment-manifests.git'
+    repoURL: 'http://gitlab.local/cicd/deployment-manifests.git'
+    path: apps/postgres
     targetRevision: main
-    path: charts/bpm-connector
     helm:
       valueFiles:
-        - envs/dev/bpm-connector.yaml
+        - values-dev.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: bpm
+    namespace: dev
   syncPolicy:
     automated:
       prune: true

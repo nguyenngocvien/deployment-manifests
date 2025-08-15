@@ -1,0 +1,36 @@
+replicaCount: 2
+
+image:
+  repository: 10.6.18.24:8080/bpm-connector/bpm-gateway
+  tag: latest
+  pullPolicy: IfNotPresent
+
+env:
+  - name: SPRING_DATASOURCE_URL
+    value: jdbc:postgresql://bpm-postgres-staging:5432/coresys
+  - name: SPRING_DATASOURCE_USERNAME
+    valueFrom:
+      secretKeyRef:
+        name: bpm-db-secret
+        key: username
+  - name: SPRING_DATASOURCE_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: bpm-db-secret
+        key: password
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: bpm-staging.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+resources: {}

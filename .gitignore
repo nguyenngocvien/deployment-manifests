@@ -1,5 +1,3 @@
-# Ignore everything by default
-*
 # Allow argocd-apps folder
 !argocd-apps/
 !argocd-apps/**

@@ -1,0 +1,10 @@
+global:
+  postgresql:
+    auth:
+      username: produser
+      password: strongProdPass
+      database: proddb
+primary:
+  persistence:
+    enabled: true
+    size: 20Gi

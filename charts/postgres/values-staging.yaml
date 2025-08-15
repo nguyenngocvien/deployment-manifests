@@ -1,0 +1,10 @@
+global:
+  postgresql:
+    auth:
+      username: staginguser
+      password: stagingpass
+      database: stagingdb
+primary:
+  persistence:
+    enabled: true
+    size: 5Gi

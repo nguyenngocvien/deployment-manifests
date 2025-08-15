@@ -1,0 +1,5 @@
+helm:
+  valueFiles:
+    - values-staging.yaml
+destination:
+  namespace: staging

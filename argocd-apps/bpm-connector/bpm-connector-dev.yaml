@@ -1,21 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bpm-connector-staging
+  name: bpm-connector-dev
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'http://10.6.18.24/cicd/deployment-manifests.git'
+    repoURL: 'http://gitlab.local/cicd/deployment-manifests.git'
     targetRevision: main
     path: charts/bpm-connector
     helm:
       valueFiles:
-        - envs/staging/bpm-connector.yaml
+        - charts/bpm-connector/values-dev.yaml
+      parameters:
+        - name: image.tag
+          value: 1.0.5
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: bpm-staging
+    namespace: bpm
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -6,21 +6,25 @@ Repo này chứa toàn bộ **Kubernetes manifests** và cấu hình **ArgoCD Ap
 ````
 .
 ├── argocd-apps/          # ArgoCD Application manifest để quản lý deployment
-│   ├── app1.yaml
-│   ├── app2.yaml
+│   ├── app1/
+│   │   ├──app-dev.yaml
+│   │   ├──app-staging.yaml
+│   │   ├──app-prod.yaml
+│   ├── app2/
 │   └── ...
-├── apps/                 # Kubernetes manifests của từng service/app
-│   ├── service-a/
-│   │   ├── deployment.yaml
-│   │   ├── service.yaml
-│   │   └── ingress.yaml
-│   └── service-b/
+├── charts/                 # Kubernetes manifests của từng service/app
+│   ├── app1/
+│   │   ├── Chart.yaml
+│   │   ├── values-dev.yaml
+│   │   ├── values-staging.yaml
+│   │   ├── values-prod.yaml
+│   │   ├── template/
+│   │   │   ├── deployment.yaml
+│   │   │   ├── service.yaml
+│   │   │   └── ingress.yaml
+│   └── app2/
 │       ├── deployment.yaml
 │       └── service.yaml
-├── envs/             # Kustomize overlays cho từng môi trường
-│   ├── dev/
-│   ├── staging/
-│   └── prod/
 └── README.md
 
 ````

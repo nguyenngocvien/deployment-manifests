@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 3
 
 image:
   repository: 10.6.18.24:8080/bpm-connector/bpm-gateway
@@ -7,7 +7,7 @@ image:
 
 env:
   - name: SPRING_DATASOURCE_URL
-    value: jdbc:postgresql://bpm-postgres:5432/coresys
+    value: jdbc:postgresql://bpm-postgres-prod:5432/coresys
   - name: SPRING_DATASOURCE_USERNAME
     valueFrom:
       secretKeyRef:
@@ -27,7 +27,7 @@ ingress:
   enabled: true
   className: nginx
   hosts:
-    - host: bpm.local
+    - host: bpm-prod.local
       paths:
         - path: /
           pathType: Prefix
